@@ -11,6 +11,8 @@ import QueEsConflicto from "./slides/QueEsConflicto";
 import PorQueExisten from "./slides/PorqueExisten";
 import Marcadores from "./slides/Marcadores";
 import CuandoAparecen from "./slides/CuandoAparecen";
+import DemoConflicto from "./slides/DemoConflicto";
+import DemoResolver from "./slides/DemoResolver";
 
 function App() {
   const revealRef = useRef<HTMLDivElement>(null);
@@ -39,6 +41,8 @@ function App() {
           <PorQueExisten />
           <CuandoAparecen />
           <Marcadores />
+          <DemoConflicto />
+          <DemoResolver />
         </div>
       </div>
     </>

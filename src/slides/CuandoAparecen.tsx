@@ -2,7 +2,7 @@ function CuandoAparecen() {
   return (
     <section>
       <h2>¿Cuándo aparecen?</h2>
-      <table>
+      <table className="tabla-operaciones">
         <thead>
           <tr>
             <th>Operación</th>

@@ -11,7 +11,8 @@
   --color-secondary: #63e6be;
   --color-secondary-soft: rgba(99, 230, 190, 0.14);
   --color-warning-soft: rgba(255, 212, 59, 0.14);
-
+  --color-info: #62d6e8;
+  --color-info-soft: rgba(98, 214, 232, 0.14);
   /* Texto */
   --color-text: #e8e8e8;
   --color-text-secondary: #b5b5b5;
@@ -44,6 +45,8 @@ body,
   border-radius: 8px;
   background: var(--color-surface-raised);
   overflow: hidden;
+  max-width: 100%;
+  font-size: 0.7em;
 }
 
 .reveal pre code {
@@ -51,11 +54,31 @@ body,
   font-weight: 100;
   font-variant-ligatures: none;
   padding: 1em;
-  max-height: none;
+  max-height: 490px;
+  width: auto;
+  overflow-y: auto;
   border: none;
+}
+.reveal pre code::-webkit-scrollbar {
+  width: 8px;
+}
+
+.reveal pre code::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
 }
 .reveal ul li::marker {
   color: var(--color-accent);
+}
+/* Estilos específicos del bloque de comandos de la demo */
+.reveal pre.codigo-demo {
+  width: auto;
+  max-width: 100%;
+  font-size: 0.9em;
+}
+
+.reveal pre code.hljs {
+  background: var(--color-surface-raised);
 }
 
 body {
@@ -97,14 +120,19 @@ body {
 
 /* Caja de concepto */
 .reveal .concepto,
-.reveal .concepto-warning {
+.reveal .concepto-warning,
+.reveal .concepto-info {
   border-left: 4px solid;
   border-radius: 6px;
   padding: 14px 22px;
-  font-size: 0.75em;
+  font-size: 0.7em;
   text-align: left;
 }
 
+.reveal .concepto-info {
+  background: var(--color-info-soft);
+  border-left-color: var(--color-info);
+}
 .reveal .concepto {
   background: var(--color-accent-soft);
   border-left-color: var(--color-accent);
@@ -113,6 +141,30 @@ body {
 .reveal .concepto-warning {
   background: var(--color-warning-soft);
   border-left-color: var(--color-warning);
+}
+
+/* Flujo de comandos dentro de la caja info */
+.reveal .concepto-info .flujo-git {
+  margin: 10px 0 0 0;
+  padding-left: 1.6em;
+  font-size: 0.85em;
+  text-align: left;
+}
+
+.reveal .concepto-info .flujo-git li {
+  margin-bottom: 8px;
+}
+
+.reveal .concepto-info .flujo-git li::marker {
+  color: var(--color-info);
+}
+
+.reveal .concepto-info .flujo-git code {
+  background: rgba(0, 0, 0, 0.35);
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: var(--color-accent);
+  font-size: 0.9em;
 }
 
 /* Marcadores de conflicto */
@@ -148,10 +200,19 @@ body {
   font-size: 1em;
   width: 100%;
 }
-.reveal table th:first-child,
-.reveal table td:first-child {
+.reveal table.tabla-operaciones th:first-child,
+.reveal table.tabla-operaciones td:first-child {
   white-space: nowrap;
   min-width: 180px;
+}
+
+/*Foco de el codigo reproduucioendo conflicto */
+.reveal pre.codigo-demo .hljs tr.highlight-line {
+  font-size: 1.2em;
+}
+.reveal pre.codigo-demo .hljs tr.highlight-line {
+  border: 1px solid var(--color-warning-soft);
+  font-weight: 300;
 }
 
 /* Slide de conflicto: 2 columnas */
@@ -187,4 +248,30 @@ body {
   color: var(--color-text-muted);
   font-size: 0.8em;
   margin-top: 12px;
+}
+
+/*DEMO resolver*/
+/* Línea resuelta (éxito) */
+.resuelto {
+  color: var(--color-secondary);
+  font-weight: bold;
+}
+
+/* Descripciones de la demo de resolución */
+.reveal .descripcion {
+  font-size: 0.6em;
+  color: var(--color-text-secondary);
+  text-align: left;
+  margin-top: 14px;
+}
+.resuelto {
+  color: var(--color-secondary);
+  font-weight: bold;
+}
+
+.reveal .descripcion {
+  font-size: 0.6em;
+  color: var(--color-text-secondary);
+  text-align: left;
+  margin-top: 14px;
 }
