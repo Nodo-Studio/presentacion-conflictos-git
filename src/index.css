@@ -1,111 +1,309 @@
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /*Fuentes*/
+  --r-main-font: "Rethink Sans Variable", "Rethink Sans", system-ui, sans-serif;
+  --r-heading-font:
+    "Rethink Sans Variable", "Rethink Sans", system-ui, sans-serif;
+  --r-code-font: "JetBrains Mono Variable", "JetBrains Mono", monospace;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  /* Marca */
+  --color-accent: #f05032;
+  --color-accent-soft: rgba(240, 80, 50, 0.14);
+  --color-secondary: #63e6be;
+  --color-secondary-soft: rgba(99, 230, 190, 0.14);
+  --color-warning-soft: rgba(255, 212, 59, 0.14);
+  --color-info: #62d6e8;
+  --color-info-soft: rgba(98, 214, 232, 0.14);
+  /* Texto */
+  --color-text: #e8e8e8;
+  --color-text-secondary: #b5b5b5;
+  --color-text-muted: #8a8a8a;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Superficies y bordes */
+  --color-surface: #191919;
+  --color-surface-raised: #222222;
+  --color-border: #303030;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  /* Estados */
+  --color-warning: #ffd43b;
+  --color-danger: #ff6b6b;
+
+  /* Alinear el tema de reveal.js a nuestra paleta */
+  --r-main-color: var(--color-text);
+  --r-heading-color: var(--color-text);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
+html,
+body,
 #root {
-  width: 1126px;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.reveal pre {
+  border: 1px solid var(--color-warning-soft);
+  border-radius: 8px;
+  background: var(--color-surface-raised);
+  overflow: hidden;
   max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+  font-size: 0.7em;
+}
+
+.reveal pre code {
+  font-family: "JetBrains Mono Variable", "JetBrains Mono", monospace;
+  font-weight: 100;
+  font-variant-ligatures: none;
+  padding: 1em;
+  max-height: 490px;
+  width: auto;
+  overflow-y: auto;
+  border: none;
+}
+.reveal pre code::-webkit-scrollbar {
+  width: 8px;
+}
+
+.reveal pre code::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+.reveal ul li::marker {
+  color: var(--color-accent);
+}
+/* Estilos específicos del bloque de comandos de la demo */
+.reveal pre.codigo-demo {
+  width: auto;
+  max-width: 100%;
+  font-size: 0.9em;
+}
+
+.reveal pre code.hljs {
+  background: var(--color-surface-raised);
 }
 
 body {
-  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+.reveal h1 {
+  font-size: 5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.reveal h2 {
+  font-size: 2.5rem;
+  color: var(--color-secondary);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+.reveal h1 .git {
+  color: var(--color-accent);
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+.reveal .subtitle {
+  font-size: 0.8em;
+  color: var(--color-text-secondary);
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
+.reveal .small {
+  font-size: 0.6em;
+  color: var(--color-text-muted);
+}
+
+/* Barra de progreso */
+.reveal .progress {
+  color: var(--color-accent);
+  background-color: var(--color-accent-soft);
+  height: 5px;
+}
+
+/* Caja de concepto */
+.reveal .concepto,
+.reveal .concepto-warning,
+.reveal .concepto-info {
+  border-left: 4px solid;
+  border-radius: 6px;
+  padding: 14px 22px;
+  font-size: 0.7em;
+  text-align: left;
+}
+
+.reveal .concepto-info {
+  background: var(--color-info-soft);
+  border-left-color: var(--color-info);
+}
+.reveal .concepto {
+  background: var(--color-accent-soft);
+  border-left-color: var(--color-accent);
+}
+
+.reveal .concepto-warning {
+  background: var(--color-warning-soft);
+  border-left-color: var(--color-warning);
+}
+
+/* Flujo de comandos dentro de la caja info */
+.reveal .concepto-info .flujo-git {
+  margin: 10px 0 0 0;
+  padding-left: 1.6em;
+  font-size: 0.85em;
+  text-align: left;
+}
+
+.reveal .concepto-info .flujo-git li {
+  margin-bottom: 8px;
+}
+
+.reveal .concepto-info .flujo-git li::marker {
+  color: var(--color-info);
+}
+
+.reveal .concepto-info .flujo-git code {
+  background: rgba(0, 0, 0, 0.35);
+  padding: 2px 8px;
   border-radius: 4px;
-  color: var(--text-h);
+  color: var(--color-accent);
+  font-size: 0.9em;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+/* Marcadores de conflicto */
+.marker-head {
+  color: var(--color-danger);
+  font-weight: bold;
+}
+
+.marker-sep {
+  color: var(--color-warning);
+  font-weight: bold;
+}
+
+/* Tablas */
+.reveal table {
+  font-size: 0.72em;
+}
+
+.reveal table th,
+.reveal table td {
+  padding: 10px 30px;
+  border-bottom-color: var(--color-border);
+  font-size: 0.75em;
+}
+
+.reveal table th {
+  color: var(--color-secondary);
+  font-weight: 300;
+}
+
+.reveal table code {
+  color: var(--color-accent);
+  font-size: 1em;
+  width: 100%;
+}
+.reveal table.tabla-operaciones th:first-child,
+.reveal table.tabla-operaciones td:first-child {
+  white-space: nowrap;
+  min-width: 180px;
+}
+
+/*Foco de el codigo reproduucioendo conflicto */
+.reveal pre.codigo-demo .hljs tr.highlight-line {
+  font-size: 1.2em;
+}
+.reveal pre.codigo-demo .hljs tr.highlight-line {
+  border: 1px solid var(--color-warning-soft);
+  font-weight: 300;
+}
+
+/* Slide de conflicto: 2 columnas */
+.conflicto-layout {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.conflicto-layout .conflicto-codigo {
+  flex: 1.2;
+  font-size: 0.5em;
+}
+
+.conflicto-layout .conflicto-info {
+  flex: 1;
+  text-align: left;
+  font-size: 0.6em;
+}
+
+.conflicto-info .info-titulo {
+  color: var(--color-danger);
+  margin: 0 0 10px 0;
+}
+
+.conflicto-screenshot {
+  border: 2px dashed var(--color-border);
+  border-radius: 8px;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.8em;
+  margin-top: 12px;
+}
+
+/*DEMO resolver*/
+/* Línea resuelta (éxito) */
+.resuelto {
+  color: var(--color-secondary);
+  font-weight: bold;
+}
+
+/* Descripciones de la demo de resolución */
+.reveal .descripcion {
+  font-size: 0.6em;
+  color: var(--color-text-secondary);
+  text-align: left;
+  margin-top: 14px;
+}
+.resuelto {
+  color: var(--color-secondary);
+  font-weight: bold;
+}
+
+.reveal .descripcion {
+  font-size: 0.6em;
+  color: var(--color-text-secondary);
+  text-align: left;
+  margin-top: 14px;
+}
+
+.reveal .gracias {
+  border-bottom: none;
+  padding: 0;
+  margin: 0;
+  font-size: 6rem;
+}
+/* Listas: jerarquía tipográfica */
+
+.reveal ul li {
+  font-weight: 100;
+  color: var(--color-text-secondary);
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.reveal ul li strong {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+/* Contenedor de código del slide de marcadores */
+.reveal pre.codigo-marcadores {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  font-size: 0.5em;
+}
+.reveal .concepto-info .info-subtitulo {
+  color: var(--color-info);
+  font-weight: 100;
+  margin: 8px 8px;
 }
