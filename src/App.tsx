@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Reveal from "reveal.js";
 import RevealHighlight from "reveal.js/plugin/highlight";
 import type { RevealApi } from "reveal.js";
@@ -7,11 +7,14 @@ import "reveal.js/theme/black.css";
 import "reveal.js/plugin/highlight/monokai.css";
 import "./index.css";
 import Portada from "./slides/Portada";
+import QueEsConflicto from "./slides/QueEsConflicto";
+import PorQueExisten from "./slides/PorqueExisten";
+import Marcadores from "./slides/Marcadores";
+import CuandoAparecen from "./slides/CuandoAparecen";
 
 function App() {
   const revealRef = useRef<HTMLDivElement>(null);
   const deckRef = useRef<RevealApi | null>(null);
-  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     //Barra de progreso:
@@ -24,11 +27,6 @@ function App() {
       });
 
       deckRef.current.initialize();
-
-      //Barra de progrtesso
-      deckRef.current.on("slidechanged", () => {
-        setProgress(deckRef.current!.getProgress());
-      });
     }
   }, []);
 
@@ -37,9 +35,12 @@ function App() {
       <div ref={revealRef} className="reveal">
         <div className="slides">
           <Portada />
+          <QueEsConflicto />
+          <PorQueExisten />
+          <CuandoAparecen />
+          <Marcadores />
         </div>
       </div>
-      <div className="progress-bar" style={{ width: `${progress * 100}%` }} />
     </>
   );
 }
