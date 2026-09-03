@@ -13,6 +13,11 @@ import Marcadores from "./slides/Marcadores";
 import CuandoAparecen from "./slides/CuandoAparecen";
 import DemoConflicto from "./slides/DemoConflicto";
 import DemoResolver from "./slides/DemoResolver";
+import Herramientas from "./slides/Herramientas";
+import BuenasPracticas from "./slides/BuenasPracticas";
+import ComandosClave from "./slides/ComandosClaves";
+import Resumen from "./slides/Resumen";
+import Gracias from "./slides/Gracias";
 
 function App() {
   const revealRef = useRef<HTMLDivElement>(null);
@@ -43,6 +48,11 @@ function App() {
           <Marcadores />
           <DemoConflicto />
           <DemoResolver />
+          <Herramientas />
+          <BuenasPracticas />
+          <ComandosClave />
+          <Resumen />
+          <Gracias />
         </div>
       </div>
     </>

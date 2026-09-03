@@ -275,3 +275,35 @@ body {
   text-align: left;
   margin-top: 14px;
 }
+
+.reveal .gracias {
+  border-bottom: none;
+  padding: 0;
+  margin: 0;
+  font-size: 6rem;
+}
+/* Listas: jerarquía tipográfica */
+
+.reveal ul li {
+  font-weight: 100;
+  color: var(--color-text-secondary);
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.reveal ul li strong {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+/* Contenedor de código del slide de marcadores */
+.reveal pre.codigo-marcadores {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  font-size: 0.5em;
+}
+.reveal .concepto-info .info-subtitulo {
+  color: var(--color-info);
+  font-weight: 100;
+  margin: 8px 8px;
+}

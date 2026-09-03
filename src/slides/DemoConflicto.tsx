@@ -1,7 +1,7 @@
 function DemoConflicto() {
   return (
     <section>
-      <h2>Demo: reproduciendo un conflicto</h2>
+      <h2>Demo - reproduciendo un conflicto</h2>
       <pre className="codigo-demo">
         <code
           className="language-bash"
