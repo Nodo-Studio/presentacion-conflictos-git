@@ -47,10 +47,6 @@ jobs:
       - name: Lint (ESLint)
         run: pnpm lint
 
-      # Si tuvieras tests, los ejecutarías aquí:
-      # - name: Tests
-      #   run: pnpm test
-
   # ============================================
   # JOB 2: Build - Construcción del artefacto
   # ============================================
@@ -91,6 +87,7 @@ jobs:
     name: Desplegar a GitHub Pages
     runs-on: ubuntu-latest
     needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
