@@ -7,6 +7,7 @@ function Portada() {
       <p className="fragment fade-up subtitle">
         Metodologías de Ingeniería de Software
       </p>
+      <p> Flujo CI / CD </p>
       <p className="fragment fade-in small">
         Jose Daniel Anacona Ramirez — 2026
       </p>
